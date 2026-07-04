@@ -63,6 +63,13 @@ void ConnectedPhysicalDeviceManager::RefreshConnectedSDLGamepads() {
         port0Ordinal = config->GetInt("Controllers.Port0GamepadOrdinal", -1);
     }
 
+    // Rebuild port 0's ignore set from scratch: instance ids change on every
+    // replug, and stale entries would leave the rightful pad ignored after a
+    // hotplug shifts the ordinals (Bluetooth pad sleep is routine).
+    if (port0Ordinal >= 0) {
+        mIgnoredInstanceIds[0].clear();
+    }
+
     int32_t gamepadOrdinal = 0;
     for (int32_t i = 0; i < SDL_NumJoysticks(); i++) {
         // skip if this SDL joystick isn't a Gamepad
