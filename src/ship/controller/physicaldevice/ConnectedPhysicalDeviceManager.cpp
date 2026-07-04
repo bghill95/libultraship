@@ -1,4 +1,6 @@
 #include "ship/controller/physicaldevice/ConnectedPhysicalDeviceManager.h"
+#include "ship/Context.h"
+#include "ship/config/Config.h"
 
 namespace Ship {
 ConnectedPhysicalDeviceManager::ConnectedPhysicalDeviceManager() {
@@ -52,6 +54,16 @@ void ConnectedPhysicalDeviceManager::RefreshConnectedSDLGamepads() {
     mConnectedSDLGamepads.clear();
     mConnectedSDLGamepadNames.clear();
 
+    // Two-instance local co-op: pin port 1 to a single physical pad by its
+    // gamepad enumeration ordinal, so each game instance can own one pad.
+    // -1 (default) keeps stock behavior: every pad drives port 1.
+    int32_t port0Ordinal = -1;
+    auto config = Context::GetInstance() != nullptr ? Context::GetInstance()->GetConfig() : nullptr;
+    if (config != nullptr) {
+        port0Ordinal = config->GetInt("Controllers.Port0GamepadOrdinal", -1);
+    }
+
+    int32_t gamepadOrdinal = 0;
     for (int32_t i = 0; i < SDL_NumJoysticks(); i++) {
         // skip if this SDL joystick isn't a Gamepad
         if (!SDL_IsGameController(i)) {
@@ -65,9 +77,15 @@ void ConnectedPhysicalDeviceManager::RefreshConnectedSDLGamepads() {
         mConnectedSDLGamepads[instanceId] = gamepad;
         mConnectedSDLGamepadNames[instanceId] = name;
 
+        if (port0Ordinal >= 0 && gamepadOrdinal != port0Ordinal) {
+            mIgnoredInstanceIds[0].insert(instanceId);
+        }
+
         for (uint8_t port = 1; port < 4; port++) {
             mIgnoredInstanceIds[port].insert(instanceId);
         }
+
+        gamepadOrdinal++;
     }
 }
 } // namespace Ship

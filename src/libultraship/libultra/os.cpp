@@ -24,6 +24,10 @@ int32_t osContInit(OSMesgQueue* mq, uint8_t* controllerBits, OSContStatus* statu
     }
 
     SDL_SetHint(SDL_HINT_JOYSTICK_THREAD, "1");
+    // Two-instance local co-op: gamepads must keep reporting while the window is
+    // unfocused (only one window can hold OS focus). The DX11 backend never sets
+    // this hint (the SDL GL/Metal paths do), so set it here, backend-independent.
+    SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, "1");
     if (SDL_Init(SDL_INIT_GAMECONTROLLER) != 0) {
         SPDLOG_ERROR("Failed to initialize SDL game controllers ({})", SDL_GetError());
         exit(EXIT_FAILURE);
