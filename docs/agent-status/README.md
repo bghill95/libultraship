@@ -36,7 +36,7 @@ Each state is reported separately, at a named commit; none implies another, and 
 | Tested | The CI checks in `.github/workflows/`: `build-validation` (Release builds on macOS, Linux, Windows x64 and Windows arm64, on every push and pull request) and `tidy-format-validation` (clang-format-14 and clang-tidy, on pull requests), each a `VERIFICATION.md` entry or a cited run naming its commit; for the co-op input, a two-instance, two-gamepad run in a consumer game build; the repository has no unit tests |
 | Independently reviewed | No review process is recorded for this fork; a reviewer separate from the implementer, with the disposition recorded in `VERIFICATION.md` |
 | Deployed | Not applicable: a library with no deployment environment of its own; a consumer compiles it into its game build |
-| Released | Not applicable: this fork defines no release process (no tags, no GitHub releases), and nothing is Released |
+| Released | Not applicable: this fork has no tags, no GitHub releases and no release workflow, and the root `README.md` line "We use semantic versioning" is upstream's text on its API versioning, not a release process of this fork; nothing is Released |
 
 ## Revision traceability
 
@@ -78,5 +78,5 @@ The standard's `scripts/` folder (https://github.com/bghill95/navideus-reporting
 - The root `README.md`, `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`: upstream's documents, which the local commits leave unchanged: what the library is, how to build it, and the checks a pull request must pass.
 - The commit messages of 326a995 and 4a83135: the local co-op input change and its reasons (`DECISIONS.md`).
 - `.github/workflows/`: the CI workflows; `build-validation.yml` runs on every push and pull request, `tidy-format-validation.yml` on pull requests.
-- https://github.com/bghill95/libultraship/actions: the `build-validation` run of 2026-07-04 at 4a83135 (`VERIFICATION.md`).
+- https://github.com/bghill95/libultraship/actions: the `build-validation` run of 2026-07-04 at 4a83135, the one run the records cite, with its run page in `VERIFICATION.md`; the runs that later pushes and the pull request start are not cited.
 - https://github.com/bghill95/OOT-True-Co-op: the sibling repository whose README describes the controller isolation this fork holds.

@@ -28,7 +28,7 @@ Use: a sibling repository, https://github.com/bghill95/OOT-True-Co-op, names thi
 Paused (project status, not a technical state; a planning seed of the Navideus Agent Reporting Standard v1.1 rollout, 2026-10-25, not yet confirmed by the owner. The repository records no pause and no reason for one, and is consistent with it: no commit since 4a83135 on 2026-07-04; no other branch, issue or pull request before these records; not archived on GitHub; checked 2026-10-26)
 
 ## Development phase
-Paused after the local co-op input change, 326a995 and 4a83135 (2026-07-04): it sets SDL's background joystick events hint in `src/libultraship/libultra/os.cpp`, and in `src/ship/controller/physicaldevice/ConnectedPhysicalDeviceManager.cpp` pins port 1 to one gamepad by its ordinal, read from the config key `Controllers.Port0GamepadOrdinal` (default -1, the stock behavior). Last known state: that change at 4a83135, which the `build-validation` workflow built on macOS, Linux and Windows x64 and failed to build on Windows arm64 (`VERIFICATION.md`).
+Recorded as Paused (unconfirmed, see Lifecycle status) after the local co-op input change, 326a995 and 4a83135 (2026-07-04): it sets SDL's background joystick events hint in `src/libultraship/libultra/os.cpp`, and in `src/ship/controller/physicaldevice/ConnectedPhysicalDeviceManager.cpp` pins port 1 to one gamepad by its ordinal, read from the config key `Controllers.Port0GamepadOrdinal` (default -1, the stock behavior). Last known state: that change at 4a83135, for which the `build-validation` push run of 2026-07-04 recorded success on macOS, Linux and Windows x64 and failure on Windows arm64, cause not recorded (`VERIFICATION.md`).
 
 ## Current milestone
 No milestone is recorded in this repository.
@@ -41,13 +41,13 @@ A block for the default branch and for each branch holding unmerged work, at mos
 - Last code commit: 4a83135 (2026-07-04): rebuilds the port-0 pad-pinning ignore set on every gamepad refresh, since instance ids change on every replug (its commit message)
 - Implemented: yes, at 326a995 and 4a83135: the SDL hint that lets gamepads report to unfocused windows, set on every graphics backend, and an opt-in pin by which port 1 binds only the Nth connected gamepad when `Controllers.Port0GamepadOrdinal` is N (0 or more), so that each of two game instances on one PC can own one pad (the commit message of 326a995)
 - Merged: is the default branch; 326a995 and 4a83135 were committed on it directly, with no merge commit
-- Tested: Failed at 4a83135: the `build-validation` push run of 2026-07-04 built on macOS, Linux and Windows x64 and failed on Windows arm64 (GitHub Actions, cited, not re-run; `VERIFICATION.md`); the repository has no unit tests, and no functional test of the co-op input is recorded
+- Tested: Failed at 4a83135: GitHub Actions recorded the conclusion failure for the `build-validation` push run 28716809559 (2026-07-04T19:13Z), because its Windows arm64 job failed, cause not recorded (GitHub no longer serves the run's logs); its macOS, Linux and Windows x64 jobs succeeded (cited, not re-run; `VERIFICATION.md`); the repository has no unit tests, and no functional test of the co-op input is recorded
 - Independently reviewed: Not Verified: the commit message of 4a83135 cites "review finding #4", whose reviewer and record are not in this repository
 - Deployed: Not applicable: a library with no deployment environment of its own; a consumer compiles it into its game build (the sibling repository's pin at 4a83135, under Project and repository)
-- Released: Not applicable: this fork defines no release process: no tags and no GitHub releases (checked 2026-10-26)
+- Released: Not applicable: this fork has no release process of its own: no tags, no GitHub releases and no release workflow (checked 2026-10-26); the root `README.md` line "We use semantic versioning" is upstream's text on its API versioning and is not read as a release process of this fork
 
 ## Verification status
-- Records check: Passed on the files of the commit that carries these records (VER-001, Opus)
+- Records check: Passed on a draft of the files committed as a46d2f7, run uncommitted on 4a83135 (VER-001, Opus)
 - build-validation (GitHub Actions): Failed at 4a83135: the Windows arm64 build failed, cause not recorded; the macOS, Linux and Windows x64 builds succeeded (cited, `VERIFICATION.md`)
 - tidy-format-validation (clang-format-14, clang-tidy): Not Run at 4a83135; it runs on pull requests only
 - Two-instance co-op input test: Not Run; no result is recorded
@@ -57,7 +57,7 @@ A block for the default branch and for each branch holding unmerged work, at mos
 - None recorded.
 
 ## Next concrete engineering action
-None is on record: the project is Paused and resuming is the owner's decision. Resuming needs the CMake build in the root `README.md` (CMake 3.24 or later per `CMakeLists.txt`; on Windows the vcpkg option shown there) and a consumer game build to exercise the change, with `Controllers.Port0GamepadOrdinal` set per instance (326a995). Suggestion (agent, not approved): on resuming, re-run `build-validation` at the head, find the cause of the Windows arm64 failure, and record a two-instance, two-gamepad test in `VERIFICATION.md`.
+None is on record: the project is recorded as Paused (unconfirmed, see Lifecycle status) and resuming is the owner's decision. Resuming needs the CMake build in the root `README.md` (CMake 3.24 or later per `CMakeLists.txt`; on Windows the vcpkg option shown there) and a consumer game build to exercise the change, with `Controllers.Port0GamepadOrdinal` set per instance (326a995). Suggestion (agent, not approved): on resuming, re-run `build-validation` at the head, find the cause of the Windows arm64 failure, and record a two-instance, two-gamepad test in `VERIFICATION.md`.
 
 ## GitHub issue/PR links
 - None: no issues, and no pull requests apart from the draft PR that carries these records, from branch `agent-status` (checked 2026-10-26).

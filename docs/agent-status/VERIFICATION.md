@@ -24,7 +24,7 @@ Current state only; each cell names the commit its result is at.
 ## Cited results (not re-run)
 | Check | Date | Commit | Environment | Result | Evidence |
 |---|---|---|---|---|---|
-| build-validation (GitHub Actions, on the push of `enemy-sync-input`): Release builds of the library on macOS, Linux, Windows x64 and Windows arm64 | 2026-07-04T19:13Z | 4a83135 | GitHub-hosted runners macos-14, ubuntu-latest and windows-latest (`.github/workflows/build-validation.yml`) | Failed: build-windows-arm64 failed in its "Build libultraship" step with exit code 1, cause not recorded (GitHub no longer serves the run's logs, checked 2026-10-26); build-macos, build-linux and build-windows-x64 succeeded; build-ios was skipped, disabled in the workflow | https://github.com/bghill95/libultraship/actions/workflows/build-validation.yml?query=branch%3Aenemy-sync-input |
+| build-validation (GitHub Actions, run 28716809559 on the push of `enemy-sync-input`): Release builds of the library on macOS, Linux, Windows x64 and Windows arm64 | 2026-07-04T19:13Z | 4a83135 | GitHub-hosted runners macos-14, ubuntu-latest and windows-latest (`.github/workflows/build-validation.yml`) | Failed: GitHub's recorded conclusion for the run is failure; its build-windows-arm64 job failed in the "Build libultraship" step (job annotation: "Process completed with exit code 1."), cause not recorded (GitHub no longer serves the run's logs, checked 2026-10-26); build-macos, build-linux and build-windows-x64 succeeded; build-ios was skipped, disabled in the workflow | https://github.com/bghill95/libultraship/actions/runs/28716809559 |
 
 ## Not Run
 | Check | Result | What it needs |
