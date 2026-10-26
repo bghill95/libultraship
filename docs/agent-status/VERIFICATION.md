@@ -9,6 +9,18 @@ Current state only; each cell names the commit its result is at.
 |---|---|---|---|---|
 | enemy-sync-input | 4a83135 | Not Run: the repository has no unit tests | build-validation Failed at 4a83135 (Windows arm64; cited); tidy-format-validation Not Run at 4a83135 | Not Verified |
 
+## VER-002: Fable's verification of these records
+- Test name and purpose: Fable's verification of these records against the repository: the rollout verification checklist (checker, hashes and dates, lifecycle claims, Business Context values, pilot leakage, roadmap labels, ceilings, diff scope, the PR).
+- Command or procedure: `python -I ~/projects/navideus-reporting-standard/main/scripts/check_records.py --repo . --base origin/enemy-sync-input` with the banned-words variable set at run time, then `git log -1` on every cited hash, `git branch -r`, `gh pr list --state all`, `gh issue list --state all`, and a read of every cited document.
+- Commit tested: 5088211 (the records as they stood before this entry's commit; later record edits are outside this disposition)
+- Environment and configuration: the owner's PC, Git Bash, Python 3.11, git 2.52, gh 2.86; the checklist was run by a read-only verification subagent on Fable's behalf, and Fable read its report.
+- Execution date: 2026-10-26T07:47Z
+- Result: Passed after fix round 1 (the cited CI run named by its identifier and labelled GitHub's conclusion with the cause left unrecorded, the release reason and the lifecycle wording corrected, in 5088211)
+- Evidence: checker: PASS with the banned-words variable set to the 191 name tokens from the author list and the documents, with exactly two R12 warnings for the cited all-digit run identifier 28716809559 (accepted by controller ruling under DEC-011 of the standard), and the same by the controller at 5088211; all five cited hashes resolve with the dates and subjects recorded; the GitHub Actions run 28716809559 (2026-07-04, conclusion failure, Windows arm64 job) and the sibling repository's submodule pin were confirmed; no private host, device, address or account appears in the records; the fix (5088211) was read back by diff: eight lines across STATUS.md, VERIFICATION.md and docs/agent-status/README.md, nothing else; the verification report was returned to the controller and is not a file
+- Reviewer and disposition: Fable; disposition: the records are verified as of 5088211; no Codex audit is scheduled for this repository; the two R12 warnings are the cited run identifier and stand by design
+- Remaining failures, limitations or untested scenarios: no build or test was run by the rollout; the arm64 failure's cause is unrecorded; the lifecycle word, the fork's upstream intent and the CI fix await the owner's answers in the PR
+- Who ran it: a read-only verification subagent on Fable's behalf (the checklist and the checker); Fable (the read of its report and this entry)
+
 ## VER-001: Records check
 - Test name and purpose: Records check: the standard's checker on these records, for their form, hashes, paths and banned strings.
 - Command or procedure: `python -I ~/projects/navideus-reporting-standard/main/scripts/check_records.py --repo .`, from the worktree root

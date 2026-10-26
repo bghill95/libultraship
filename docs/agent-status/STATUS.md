@@ -52,6 +52,7 @@ A block for the default branch and for each branch holding unmerged work, at mos
 - tidy-format-validation (clang-format-14, clang-tidy): Not Run at 4a83135; it runs on pull requests only
 - Two-instance co-op input test: Not Run; no result is recorded
 - Independent review: Not Verified at 4a83135
+- Fable's verification of these records at 5088211: Passed after fix round 1 (VER-002, 2026-10-26T07:47Z).
 
 ## Open blockers
 - None recorded.
@@ -60,7 +61,7 @@ A block for the default branch and for each branch holding unmerged work, at mos
 None is on record: the project is recorded as Paused (unconfirmed, see Lifecycle status) and resuming is the owner's decision. Resuming needs the CMake build in the root `README.md` (CMake 3.24 or later per `CMakeLists.txt`; on Windows the vcpkg option shown there) and a consumer game build to exercise the change, with `Controllers.Port0GamepadOrdinal` set per instance (326a995). Suggestion (agent, not approved): on resuming, re-run `build-validation` at the head, find the cause of the Windows arm64 failure, and record a two-instance, two-gamepad test in `VERIFICATION.md`.
 
 ## GitHub issue/PR links
-- None: no issues, and no pull requests apart from the draft PR that carries these records, from branch `agent-status` (checked 2026-10-26).
+- None: no issues, and no pull requests apart from the draft PR that carries these records, from branch `agent-status` (checked 2026-10-26). PR for these records: https://github.com/bghill95/libultraship/pull/1 (draft).
 
 ## Revisions
 - Default-branch commit: 4a83135 (2026-07-04)
@@ -68,10 +69,10 @@ None is on record: the project is recorded as Paused (unconfirmed, see Lifecycle
 - Commit tested: 4a83135 (`build-validation`, Failed; cited from GitHub Actions, not re-run)
 - Commit reviewed: Not Verified
 - Commit deployed: Not applicable: a library with no deployment environment of its own
-- Records revision: this commit
+- Records revision: this commit (previous records revision: 5088211)
 
 ## Last verified
-2026-10-26T06:49Z (Opus: the standard's checker on these records, VER-001; Fable's verification has not run yet)
+2026-10-26T07:47Z (Fable's verification at 5088211, VER-002; the implementer's check is VER-001)
 
 ## Uncertainties
 - Paused is the planning seed, not confirmed by the owner; the reason for the pause is not recorded (the owner).
