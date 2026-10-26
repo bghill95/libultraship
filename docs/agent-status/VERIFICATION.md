@@ -12,7 +12,7 @@ Current state only; each cell names the commit its result is at.
 ## VER-001: Records check
 - Test name and purpose: Records check: the standard's checker on these records, for their form, hashes, paths and banned strings.
 - Command or procedure: `python -I ~/projects/navideus-reporting-standard/main/scripts/check_records.py --repo .`, from the worktree root
-- Commit tested: the files of the commit that carries this entry, uncommitted on 4a83135
+- Commit tested: a draft of the files committed as a46d2f7, run uncommitted on 4a83135; the entry and Last verified were filled after the run
 - Environment and configuration: the `libultraship` worktree on branch `agent-status`, Git Bash on Windows 11, Python 3.11.15, git 2.52.0.windows.1
 - Execution date: 2026-10-26T06:49Z
 - Result: Passed

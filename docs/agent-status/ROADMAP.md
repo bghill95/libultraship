@@ -14,7 +14,7 @@ No roadmap is recorded for this project; none is invented.
 ## Dependencies
 - Upstream: libultraship, https://github.com/Kenix3/libultraship (root `README.md`), the library this fork's change sits on; these records do not compare this branch's history with upstream's.
 - Third-party libraries listed in the root `README.md`, among them SDL2, whose joystick hint and game-controller calls the co-op change uses; on Windows with `USE_AUTO_VCPKG` the build installs SDL2, libzip, tinyxml2, spdlog and others through vcpkg (`cmake/dependencies/windows-vcpkg.cmake`).
-- Consumer: the sibling repository https://github.com/bghill95/OOT-True-Co-op pins this repository as its `libultraship` submodule at 4a83135 on its `enemy-sync` branch (checked 2026-10-26), so a change here reaches it only when that pin moves.
+- Use by a sibling repository: https://github.com/bghill95/OOT-True-Co-op names this repository in its README as its `libultraship` submodule and pins it at 4a83135 on its `enemy-sync` branch (checked 2026-10-26), so a change here reaches it only when that pin moves.
 
 ## Known risks
 - The `build-validation` run at 4a83135 failed on Windows arm64, cause not recorded (`VERIFICATION.md`).
